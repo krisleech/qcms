@@ -1,0 +1,60 @@
+<p>Title<BR/>
+  <%= f.text_field :title %>
+</p>
+
+<p>Permalink<BR/>
+  <% if @document.new_record? %>
+    <%= f.text_field :permalink, :value => '' %>
+    <small>This will be generated automatically if left blank</small>
+  <% else %>
+    <%= f.text_field :permalink, :readonly => 'true' %>
+    <small>Not editable</small>
+  <% end %>
+</p>
+
+<p>State<BR/>
+  <%= f.select :state, [['Published','published'], ['Draft', 'draft']] %>
+</p>
+
+<p>Published <BR><%= f.date_select :published_at, :order => [:day, :month, :year] %></p>
+
+<p>Body<BR/>
+  <%= f.text_area :body %>
+</p>
+
+<p>Summary<BR/>
+  <%= f.text_field :summary %>
+  <small>This will be generated automatically if left blank</small>
+</p>
+
+<p>Image<BR/>
+  <%= f.file_field :resource %>
+  <%= render :partial => 'admin/documents/shared/resource_link' %>
+  <% if @document.resource.exists? %>
+  <div>Delete image: <%= f.check_box :delete_resource %></div>
+<% end %>
+</p>
+
+<p>
+  Image Description<br/>
+  <%= f.text_field :resource_description %>
+</p>
+
+<fieldset>
+  <legend>Meta</legend>
+  <p>Page Title<BR/>
+    <%= f.text_field :meta_title %>
+  </p>
+
+  <p>Description<BR/>
+    <%= f.text_field :meta_description %>
+  </p>
+
+  <p>Keywords<BR/>
+    <%= f.text_field :meta_keywords %>
+  </p>
+</fieldset>
+
+<%= f.hidden_field :parent_id %>
+<%= f.hidden_field :label %>
+<%= f.hidden_field :meta_definition_id %>

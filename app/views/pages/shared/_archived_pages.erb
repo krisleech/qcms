@@ -1,0 +1,16 @@
+<%
+year ||= Time.now.year
+folder ||= @folder
+heading ||= 'Archive'
+%>
+
+<% pages_by_month = folder.children.group_by(&:month) %>
+
+<h3><%= heading %></h3>
+<ul class="archive">
+  <% 1.upto(12) do | month | %>
+    <li><a href="<%= document_archive_path(folder.root.permalink, month.to_s, year.to_s) %>"><%= Date::MONTHNAMES[month] %></a>
+    <small>(<%= pages_by_month[Date::MONTHNAMES[month]] ? pages_by_month[Date::MONTHNAMES[month]].size.to_s : '0' %>)</small>
+    </li>
+  <% end %>
+</ul>

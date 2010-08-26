@@ -1,0 +1,12 @@
+<% if RAILS_ENV == 'development' %>
+  <% if current_user %>
+    <% form_tag generate_template_admin_document_path(@document.id) do %>
+      <input type="submit" value="Create Template" />
+    <% end %>
+    <p style="margin-top: 20px;">The template created will be app/views/pages/<%= @document.meta_definition.label_path.gsub('/', '.') %>.html.erb</p>
+  <% else %>
+    <p><a href="/login">Login</a> to create a blank template</p>
+  <% end %>
+<% else %>
+  <% raise "No Template Found for #{request.path}" %>
+<% end %>

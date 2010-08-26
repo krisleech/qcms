@@ -1,0 +1,34 @@
+<style>
+  ul.info li { margin-left: 20px;
+  list-style: none;
+  padding: 5px;
+  background-color: #CFDBA0;
+  margin-bottom: 4px;
+  }
+</style>
+
+<h3>Qwerty</h3>
+<ul class="info">
+  <li>Qcore: <%= Qcore::VERSION %></li>
+  <li>Qcms: <%= Qcms::VERSION %></li>
+</ul>
+
+<h3>Rails</h3>
+<ul class="info">
+  <li>Version: <%= Rails.version %></li>
+  <li>User: <%= Etc.getpwuid(Process.euid).name %></li>
+  <li>Root: <%= RAILS_ROOT %></li>
+  <li>Env: <%= RAILS_ENV %></li>
+</ul>
+
+<h3>Gem</h3>
+<ul class="info">
+  <li>Config: <%=  Gem.config_file %></li>
+  <li>Default path: <%= Gem.default_path %></li>
+</ul>
+
+<h3>Ruby</h3>
+<ul class="info">
+  <li>version <%= Gem.ruby_version.to_s %></li>
+  <li>path <%=  Gem.ruby %></li>
+</ul>

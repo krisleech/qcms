@@ -1,0 +1,39 @@
+---
+
+page:
+  sort_by :title
+     
+blog:
+  children:
+    post:
+      sort_by: published_at
+      per_page: 10
+      children:
+        comment:
+          randomise_permalink: true
+          default_state: pending
+          body_length: 255
+          body_strip_html: true
+          sort_by: published_at
+          per_page: 20
+
+about:
+  children:
+    page:
+      sort_by: position
+      per_page: 10
+      children:
+        link:
+          sort_by: title
+          per_page: 1000
+
+
+gallery:
+  children:
+    gallery:
+      sort_by: title
+      per_page: 10
+      children:
+        picture:
+          sort_by: title
+          per_page: 10

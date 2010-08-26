@@ -1,0 +1,42 @@
+<h3>Contact Us</h3>
+
+<%= form_tag sendmail_path %>
+
+<p>First name:<br /><input type="text" name ="first_name" class="required" /></p>
+<p>Last name:<br /><input type="text" name ="last_name" class="required" /></p>
+<p>Email:<br /><input type="text" name ="email" class="required email" /></p>
+<p>Message:<br><textarea name="message" id="message">Type your message here</textarea></p>
+
+
+<input type="hidden" name="meta[from]" value="kris.leech@interkonect.com" />
+<input type="hidden" name="meta[subject]" value="kris.leech@interkonect.com" />
+<input type="hidden" name="meta[recipients]" value="kris.leech@interkonect.com" />
+<!-- <input type="hidden" name="meta[redirect_to]" value="/thank-you" /> -->
+<!-- <input type="hidden" name="meta[message]" value="Thank you!" /> -->
+<input type="hidden" name="meta[show_page]" value="thank_you" />
+
+
+<input type="submit" name="submit" value="Send" />
+</form>
+
+
+<p>Your email address will be kept confidential and used only to respond to your enquiry</p>
+
+
+
+<%= javascript_include_tag 'jquery-validate/jquery.validate.min.js' %>
+<script>
+  $(document).ready(function() {
+    $('form').validate();
+  });
+
+    $('#message').blur(function(){
+      if($(this).attr('value')=='') {
+        $(this).attr('value', 'Type your message here...')
+      }
+    });
+
+    $('#message').focus(function(){
+      $(this).attr('value', '');
+    });
+</script>

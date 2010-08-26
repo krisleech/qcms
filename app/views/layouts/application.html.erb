@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title><%= page_title %></title>
+    <meta http-equiv="content-type" content="text/xhtml; charset=utf-8" />
+    <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" media="screen" />        
+    <%= javascript_include_tag 'jquery-1.3.1.min.js' %>    
+    <%= javascript_include_tag 'application' %>
+    <%= meta_tags -%>
+    <%= yield :head  %>
+  </head>
+  <body>
+    <div id="user_nav">
+      <% if current_user %>
+        <a href="<%= logout_path %>">Logout</a>
+        <a href="/admin">Admin</a>
+      <% else %>
+        <a href="<%= login_path %>">Login</a>
+      <% end %>
+    </div>
+
+    <% if flash[:notice] %>
+      <div id="flash-notice"><%= flash[:notice] %> <a href="#">Close</a></div>
+    <% end %>
+
+    <div id="header"></div>    
+    <ul id="nav">
+      <% Document.public.roots.order_by('position').each do | doc | %>
+        <li style=""><a href="<%= document_path(doc) %>"><%= doc.title %></a></li>
+      <% end %>
+    </ul>
+    <div style="clear:both;"></div>
+    <div id="container">
+      <div id="content">
+        <%= yield %>
+      </div>
+
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div> <!-- container -->
+  </body>
+</html>

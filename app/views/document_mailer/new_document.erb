@@ -1,0 +1,12 @@
+<p>You have a new <%= @document.label %></p>
+
+<% unless @document.published? %>
+<p>This <%= @document.label %> is currently <%= @document.state.capitalize %></p>
+<% end %>
+
+<p><%= link_to 'Edit', 'http://' + Settings.domain + admin_document_path(@document.parent_id) %></p>
+
+
+
+
+

@@ -1,0 +1,56 @@
+Qwerty CMS
+==========
+
+A unique CMS provided as a Rails 2 engine
+
+Key Features
+
+* Extended template pathing
+** blog.post.erb.html
+** blog.post.comment.erb.html
+** homepage.erb.html
+** gallery.picture.erb.html
+
+* sitemap.yml
+** A nice way to represent a sites nested structure and defaults for each level such as pagination and ordering
+
+* Not bound to a autherisation or authentication system
+
+== Get going
+
+Firstly, it is easiest to start using Skeletor app which provides a bare bones application with examples configuration files, and Authlogic integration.
+
+Otherwise:
+
+Copy the migrations and rake tasks to your Rails app.
+
+config.gem "qcms",  :version => '~>1.0'
+
+Create sitemap.yml (see skeletor for examples)
+
+rake qwerty:bootstrap
+
+== TODO
+
+* migrations to work from inside a gem
+* rake tasks to work from inside a gem.
+* Specify gem dependancies
+
+== Versioning
+
+Versioning schema: http://semver.org/
+
+== Upgrade Notes
+
+= 1.3
+
+settings.yml
+
+documents
+    cache: true
+
+== Authors
+
+Kris Leech @ Interkonect Limited
+
+http://interkonect.com
