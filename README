@@ -40,8 +40,6 @@ rake qwerty:bootstrap
 
 (next) git co -b release_1.2.1
 (release_1.2.1) rake version:bump:patch
-(release_1.2.1) git add .
-(release_1.2.1) git commit -m 'Bump version'
 (release_1.2.1) git co master
 (master) git merge --no-ff release_1.2.1
 (master) rake release
