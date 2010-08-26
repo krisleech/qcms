@@ -33,6 +33,7 @@ begin
     gemspec.homepage = "http://teamcoding.com"
     gemspec.authors = ["Kris Leech"]
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
 end
