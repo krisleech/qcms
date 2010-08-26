@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{qcms}
-  s.version = "1.3.2"
+  s.version = "1.3.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kris Leech"]
@@ -69,7 +69,7 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "uninstall.rb"
   ]
-  s.homepage = %q{http://teamcoding.com}
+  s.homepage = %q{http://github.com/krisleech/qcms}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
