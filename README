@@ -36,6 +36,18 @@ rake qwerty:bootstrap
 * rake tasks to work from inside a gem.
 * Specify gem dependancies
 
+== Release Gem with Jeweler and Git to RubyGems
+
+(next) git co -b release_1.2.1
+(release_1.2.1) rake version:bump:patch
+(release_1.2.1) git add .
+(release_1.2.1) git commit -m 'Bump version'
+(release_1.2.1) git co master
+(master) git merge --no-ff release_1.2.1
+(master) rake release
+(master) git co next
+(next) git merge --no-ff release_1.2.1
+
 == Versioning
 
 Versioning schema: http://semver.org/
