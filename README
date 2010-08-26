@@ -16,6 +16,10 @@ Key Features
 
 * Not bound to a autherisation or authentication system
 
+== Install
+
+sudo gem install qcms
+
 == Get going
 
 Firstly, it is easiest to start using Skeletor app which provides a bare bones application with examples configuration files, and Authlogic integration.
