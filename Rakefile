@@ -30,7 +30,7 @@ begin
     gemspec.summary = "A CMS built in collaberation with designers"
     gemspec.description = "Key CMS features: extended template pathing, sitemap.yml, simple configurable, deeply nestable content"
     gemspec.email = "kris.leech@interkonect.com"
-    gemspec.homepage = "http://teamcoding.com"
+    gemspec.homepage = "http://github.com/krisleech/qcms"
     gemspec.authors = ["Kris Leech"]
   end
   Jeweler::GemcutterTasks.new
