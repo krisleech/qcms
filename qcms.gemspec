@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{qcms}
-  s.version = "1.3.1"
+  s.version = "1.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kris Leech"]
-  s.date = %q{2010-07-19}
-  s.description = %q{The Qwerty CMS}
+  s.date = %q{2010-08-26}
+  s.description = %q{Key CMS features: extended template pathing, sitemap.yml, simple configurable, deeply nestable content}
   s.email = %q{kris.leech@interkonect.com}
   s.extra_rdoc_files = [
     "README"
@@ -55,12 +55,13 @@ Gem::Specification.new do |s|
      "app/views/pages/template.erb",
      "app/views/pages/thank_you.html.erb",
      "app/views/sendmail/default.erb",
-     "config/sitemap.yml",
+     "config/sitemap.example.yml",
      "db/migrate/20090824150210_create_documents.rb",
      "db/migrate/20091208124512_create_meta_definition.rb",
      "init.rb",
      "install.rb",
      "lib/qcms.rb",
+     "lib/tasks/cms.rake",
      "qcms.gemspec",
      "rails/init.rb",
      "tasks/qcms_tasks.rake",
@@ -68,11 +69,11 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "uninstall.rb"
   ]
-  s.homepage = %q{http://interkonect.com}
+  s.homepage = %q{http://teamcoding.com}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{The Qwerty CMS}
+  s.summary = %q{A CMS built in collaberation with designers}
   s.test_files = [
     "test/qwerty_test.rb",
      "test/test_helper.rb"
