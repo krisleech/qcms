@@ -239,8 +239,8 @@ class Document < ActiveRecord::Base
   end
 
   def set_meta_data    
-    self.meta_title = self.title.to(50) if self.title_changed? && (!self.meta_title_changed? or self.meta_title.blank?)
-    self.meta_description = self.summary.to(50) if self.summary_changed? && (!self.meta_description_changed? or self.meta_description.blank?)
+    self.meta_title = self.title.to(255) if self.title_changed? && (!self.meta_title_changed? or self.meta_title.blank?)
+    self.meta_description = self.summary.to(255) if self.summary_changed? && (!self.meta_description_changed? or self.meta_description.blank?)
   end
 
   # before_save
