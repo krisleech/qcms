@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{qcms}
-  s.version = "1.3.3"
+  s.version = "1.3.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kris Leech"]
-  s.date = %q{2010-08-27}
+  s.date = %q{2010-09-26}
   s.description = %q{Key CMS features: extended template pathing, sitemap.yml, simple configurable, deeply nestable content}
   s.email = %q{kris.leech@interkonect.com}
   s.extra_rdoc_files = [
@@ -72,7 +72,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/krisleech/qcms}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{A CMS built in collaberation with designers}
   s.test_files = [
     "test/qwerty_test.rb",
@@ -83,7 +83,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
     else
     end
   else
