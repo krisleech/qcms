@@ -7,6 +7,7 @@ class CreateDocuments < ActiveRecord::Migration
       t.text     "body"
       t.string   "permalink"
       t.string   "state"
+      t.string   "url"
       t.string   "label"
       t.text     "path"
       t.integer  "author_id"
