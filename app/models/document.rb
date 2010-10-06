@@ -244,12 +244,12 @@ class Document < ActiveRecord::Base
   end
 
   def generate_summary
-    self.summary = Sanitize.clean(self.body).to(255) if self.body_changed? && (!self.summary_changed? or self.summary.blank?)
+    self.summary = Sanitize.clean(self.body).to(255) if self.summary.blank?
   end
 
   def set_meta_data    
-    self.meta_title = self.title.to(255) if self.title_changed? && (!self.meta_title_changed? or self.meta_title.blank?)
-    self.meta_description = self.summary.to(255) if self.summary_changed? && (!self.meta_description_changed? or self.meta_description.blank?)
+    self.meta_title = self.title.to(255) if self.meta_title.blank?
+    self.meta_description = self.summary.to(255) if self.meta_description.blank?
   end
 
   # before_save
