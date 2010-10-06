@@ -182,6 +182,15 @@ class Document < ActiveRecord::Base
     map_fields
   end
 
+  SortByOptions = {
+          'Date DESC' => 'published_at DESC',
+          'Date ASC'  => 'published_at ASC',
+          'Title'     => 'title',
+          'Manually'  => 'position ASC'
+        }
+
+  PerPageOptions = [1, 5, 10, 20, 50, 100]
+
   private
 
   # make sure the last element of the path is the same as the permalink

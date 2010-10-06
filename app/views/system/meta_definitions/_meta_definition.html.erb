@@ -1,0 +1,22 @@
+<div class='meta'>
+  <% unless md.children.empty? %>
+      <%= link_to md.label.capitalize, "##{dom_id(md)}", :class => 'toggle_details' %>
+  <% else %>
+      <%= md.label.capitalize %>
+  <% end %>
+  (<%= md.documents.count %>)
+
+  <%= link_to 'Add', md.id.to_s, :class => 'new' %>
+  <%= link_to 'Edit', edit_system_meta_definition_path(md) %>
+  <%= link_to 'Up', up_system_meta_definition_path(md) %>
+  <%= link_to 'Down', down_system_meta_definition_path(md) %>
+  <%= link_to 'Delete', system_meta_definition_path(md), :method => :delete, :confirm => "Delete this and #{md.documents.count} documents?" %>
+</div>
+
+<div id='<%= dom_id(md) %>' style='display:none;margin-left:20px;'>
+  <% unless md.children.empty? %>
+      <% md.children.each do |mdc| %>
+          <%= render :partial => 'meta_definition', :locals => {:md => mdc} %>
+      <% end %>
+  <% end %>
+</div>
