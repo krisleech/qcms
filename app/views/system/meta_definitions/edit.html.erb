@@ -1,0 +1,5 @@
+<h3>Edit</h3>
+<% form_for [:system, @meta_definition] do |f| %>
+    <%= render :partial => 'form', :object => f %>
+    <%= f.submit 'Save' %>
+<% end %>

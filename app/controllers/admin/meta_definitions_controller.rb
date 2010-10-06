@@ -1,6 +1,7 @@
 class Admin::MetaDefinitionsController < Admin::AdminController
 
   def index
+    @meta_definition = MetaDefinition.roots
   end
 
   def show

@@ -1,0 +1,38 @@
+<h2>Sitemap</h2>
+
+<% @meta_definitions.each do |md| %>
+    <%= render :partial => 'meta_definition', :locals => { :md => md } %>
+<% end %>
+
+<h3>New</h3>
+<% form_for [:system, @meta_definition] do |f| %>
+    <%= render :partial => 'form', :object => f %>
+    <%= f.submit 'Save' %>
+<% end %>
+
+<style>
+    .meta {
+        margin: 4px;
+        margin-left: 20px;
+        padding: 4px;
+        background-color: #D3D6DE;
+        border-top: 2px white solid;
+    }
+
+</style>
+
+<script>
+    $(function() {
+        $('a.toggle_details').click(function() {
+            $($(this).attr('href')).toggle();
+            return false;
+        });
+
+        $('a.new').click(function() {
+            $('#meta_definition_parent_id').attr('value', $(this).attr('href'));
+            return false;
+        });
+
+    })
+
+</script>
