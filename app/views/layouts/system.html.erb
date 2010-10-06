@@ -16,12 +16,13 @@
       <div id="flash-notice"><%= flash[:notice] %> <a href="#">Close</a></div>
     <% end %>
 
-    <div id="header">QWERTY+ System Control Panel</div>
+    <div id="header">QWERTY+ <strong>System</strong> Control Panel</div>
 
     <ul id="top_menu">    
       <li><a href="<%= system_dashboard_path %>">Dashboard</a></li>
       <li><a href="<%= system_meta_definitions_path %>">Sitemap</a></li>
       <li><a href="<%= system_users_path %>">Users</a></li>
+      <li><a href="<%= admin_dashboard_path %>">Admin</a></li>      
       <li><a href="<%= root_path %>">Site Homepage</a></li>
     </ul>
 

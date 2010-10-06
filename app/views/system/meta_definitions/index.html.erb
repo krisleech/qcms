@@ -1,14 +1,18 @@
-<h2>Sitemap</h2>
+<h2>Meta Definitions</h2>
 
 <% @meta_definitions.each do |md| %>
     <%= render :partial => 'meta_definition', :locals => { :md => md } %>
 <% end %>
 
+<p><%= link_to 'New', '#', :id => 'add_meta_definition', :class => 'button' %></p>
+
+<div id='new_meta_definition' style='display:none;'>
 <h3>New</h3>
 <% form_for [:system, @meta_definition] do |f| %>
     <%= render :partial => 'form', :object => f %>
     <%= f.submit 'Save' %>
 <% end %>
+</div>
 
 <style>
     .meta {
@@ -18,7 +22,6 @@
         background-color: #D3D6DE;
         border-top: 2px white solid;
     }
-
 </style>
 
 <script>
@@ -28,7 +31,13 @@
             return false;
         });
 
+        $('a#add_meta_definition').click(function() {
+            $('#new_meta_definition').show();
+            return false;
+        });
+
         $('a.new').click(function() {
+            $('#new_meta_definition').show();
             $('#meta_definition_parent_id').attr('value', $(this).attr('href'));
             return false;
         });
