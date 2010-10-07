@@ -69,6 +69,13 @@ class Document < ActiveRecord::Base
     end
   end
 
+  # Allow all documents to be processed in tree structure
+  def self.process(&block)
+    Document.all.group_by(&:meta_definition).each do | meta_definition, documents |
+      documents.each { |document| yield(document, meta_definition)}
+    end
+  end
+
   # autherisation
   def allowed?(user, action)
     meta_definition.allowed?(user, action)
@@ -249,7 +256,7 @@ class Document < ActiveRecord::Base
 
   def set_meta_data    
     self.meta_title = self.title.to(255) if self.meta_title.blank?
-    self.meta_description = self.summary.to(255) if self.meta_description.blank?
+    self.meta_description = self.summary.to(255) if !self.summary.blank? && self.meta_description.blank?
   end
 
   # before_save
