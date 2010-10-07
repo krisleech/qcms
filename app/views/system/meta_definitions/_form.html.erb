@@ -1,0 +1,22 @@
+<%= form.error_messages %>
+<% unless @meta_definition.new_record? %>
+    <p>Label path: <br/><%= form.text_field :label_path %></p>
+<% end %>
+<p>Label: <br/><%= form.text_field :label %></p>
+<p>Parent: <br/><%= form.select :parent_id, ['', ''] + MetaDefinition.all.collect { |md| [md.label_path, md.id] } %></p>
+
+<p><label>Sort by</label><br> <%= form.select :sort_by, Document::SortByOptions.to_a, :include_blank => true %></p>
+<p><label>Per page</label><br> <%= form.select :per_page, Document::PerPageOptions.to_a, :include_blank => true %></p>
+
+<p><%= form.check_box :record_hits %> Record hits</p>
+<p><%= form.check_box :notify_admins %> Notify admins</p>
+<p><%= form.check_box :randomise_permalink %> Randomise permalink</p>
+<p><%= form.check_box :body_strip_html %> Strip HTML</p>
+<p>Body Length: <br/><%= form.text_field :body_length %></p>
+
+<fieldset>
+  <legend>Defaults</legend>
+  <p>State: <br/><%= form.text_field :default_state %></p>
+  <p>Type: <br/><%= form.text_field :default_type, :value => 'Document' %></p>
+</fieldset>
+

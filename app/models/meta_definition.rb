@@ -4,11 +4,11 @@ class MetaDefinition < ActiveRecord::Base
   validates_presence_of :label_path, :label
   validates_uniqueness_of :label_path
 
-  acts_as_list
+  acts_as_list :scope => :parent
   acts_as_tree
   path_finder :uid => 'label', :column => 'label_path'
 
-  default_scope :order => 'position DESC'
+  default_scope :order => 'position ASC'
 
   named_scope :by_label, lambda { |label| { :conditions => ['label = ?', label] } }
 
@@ -52,6 +52,6 @@ class MetaDefinition < ActiveRecord::Base
 
   # Prevent empty strings being saved
   def nullify_empty_columns
-    %w(sort_by per_page).each { |column| self.send(column+'=', nil) if self.send(column) == '' }
+    %w(sort_by per_page default_state).each { |column| self.send(column+'=', nil) if self.send(column) == '' }
   end
 end

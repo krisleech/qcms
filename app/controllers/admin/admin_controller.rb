@@ -3,9 +3,6 @@ class Admin::AdminController < ApplicationController
 
   layout 'admin'
 
-  def system    
-  end
-
   def dashboard
     redirect_to admin_documents_path
   end

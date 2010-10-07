@@ -8,6 +8,7 @@ config/database.yml
 config/settings.yml
 config/authorisation.yml
 nbproject
+.idea
 pkg/**
 .yardoc/*
 doc/*
