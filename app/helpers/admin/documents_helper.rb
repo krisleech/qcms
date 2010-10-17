@@ -32,19 +32,17 @@ module Admin::DocumentsHelper
 
   # Find the correct form partial for @document
   def form_partial
-#    file = "admin/documents/_#{@document.label}_form.html.erb"
-    
     root = 'admin/documents'
     choices = ["_#{@document.meta_definition.label_path.gsub('/', '_')}_form.html.erb", "_#{@document.label}_form.html.erb"]
     
     self.view_paths.each do | view_path |      
       choices.each do | choice |
         target = File.join(view_path, root, choice)
-        logger.debug 'PARTIAL: ' + target
+        logger.debug 'FORM: ' + target
         if File.exists? target
-          return file.gsub('/_', '/')
+          return File.join(root, choice).gsub('/_', '/')
         end
-    end
+      end
     end
     "admin/documents/form"    
   end
