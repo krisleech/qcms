@@ -35,7 +35,7 @@ module Admin::DocumentsHelper
 #    file = "admin/documents/_#{@document.label}_form.html.erb"
     
     root = 'admin/documents'
-    choices = ["_#{@document.meta_definition.label_path}_form.html.erb", "_#{@document.label}_form.html.erb"]
+    choices = ["_#{@document.meta_definition.label_path.gsub('/', '_')}_form.html.erb", "_#{@document.label}_form.html.erb"]
     
     self.view_paths.each do | view_path |      
       choices.each do | choice |
