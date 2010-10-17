@@ -38,6 +38,7 @@ class Document < ActiveRecord::Base
   named_scope :roots, { :conditions => { :parent_id => nil }, :include => [:meta_definition, :parent] }
   named_scope :public, { :conditions => { :state => 'published' }}
   named_scope :offset, lambda { |offset| { :offset => offset } }
+  named_scope :siblings, lambda { |document| { :conditions => { :parent_id => document.parent.id } } }
 
   # Callbacks
   before_validation_on_create :pull_meta_definition
@@ -102,6 +103,13 @@ class Document < ActiveRecord::Base
   # allow Document['homepage']
   def self.[](path)
     find_by_path(path)
+  end
+
+  # ordered_siblings_for returns siblings as a named_scope in the correct order
+  # It is a class method so does not trample on the instance method, siblings, which returns an Array
+  def self.ordered_siblings_for(document)
+    raise 'Can not get siblings for root documents' if document.root?
+    siblings(document).order_by(document.parent.meta_definition.children.by_label(document.label).first.sort_by)
   end
 
   # All children grouped by year and month
