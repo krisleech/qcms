@@ -263,7 +263,7 @@ class Document < ActiveRecord::Base
   end
 
   def set_meta_data    
-    self.meta_title = self.title.to(255) if self.meta_title.blank?
+    self.meta_title = self.title.to(255) if !self.title.blank? && self.meta_title.blank?
     self.meta_description = self.summary.to(255) if !self.summary.blank? && self.meta_description.blank?
   end
 
