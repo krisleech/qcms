@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{qcms}
-  s.version = "1.3.5"
+  s.version = "1.3.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kris Leech"]
-  s.date = %q{2010-10-07}
+  s.date = %q{2010-10-17}
   s.description = %q{Key CMS features: extended template pathing, sitemap.yml, simple configurable, deeply nestable content}
   s.email = %q{kris.leech@interkonect.com}
   s.extra_rdoc_files = [
@@ -36,7 +36,6 @@ Gem::Specification.new do |s|
      "app/models/document_sweeper.rb",
      "app/models/meta_definition.rb",
      "app/models/sendmail.rb",
-     "app/views/admin/admin/system.html.erb",
      "app/views/admin/documents/_form.html.erb",
      "app/views/admin/documents/default.edit.html.erb",
      "app/views/admin/documents/default.new.html.erb",
@@ -71,10 +70,8 @@ Gem::Specification.new do |s|
      "init.rb",
      "install.rb",
      "lib/qcms.rb",
-     "lib/tasks/cms.rake",
      "qcms.gemspec",
      "rails/init.rb",
-     "tasks/qcms_tasks.rake",
      "test/qwerty_test.rb",
      "test/test_helper.rb",
      "uninstall.rb"
