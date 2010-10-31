@@ -1,4 +1,5 @@
 class Admin::DocumentsController < Admin::AdminController
+  unloadable
   before_filter :find_document, :except => [:index]
   before_filter :catch_sti_problem, :only => [:update]
 

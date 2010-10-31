@@ -1,4 +1,5 @@
 class System::MetaDefinitionsController < System::SystemController
+  unloadable
   inherit_resources
   respond_to :html
 

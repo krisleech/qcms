@@ -1,4 +1,5 @@
 class Admin::AdminController < ApplicationController
+  unloadable
   before_filter :require_user
 
   layout 'admin'
