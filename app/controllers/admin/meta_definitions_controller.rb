@@ -1,5 +1,5 @@
 class Admin::MetaDefinitionsController < Admin::AdminController
-
+  unloadable
   def index
     @meta_definition = MetaDefinition.roots
   end
