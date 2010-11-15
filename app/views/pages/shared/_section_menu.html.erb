@@ -1,0 +1,17 @@
+<%
+document ||= @document.root
+id ||= document.root? ? 'section_menu' : ''
+order ||= 'title ASC'
+
+-%>
+
+
+
+
+  <ul id="<%= id %>">
+	<% document.children.public.order_by(order).each do | child_document | %>
+	<li><a href="<%= document_path(child_document) %>"><%= child_document.title %></a>
+		<%= render :partial => 'pages/shared/section_menu', :locals => { :document => child_document } unless document.children.empty? %>
+	</li>
+	<% end %>	
+  </ul>

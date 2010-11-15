@@ -15,6 +15,7 @@
 <!-- <input type="hidden" name="meta[message]" value="Thank you!" /> -->
 <input type="hidden" name="meta[show_page]" value="thank_you" />
 
+<input id="javascript_enabled" type="hidden" name="javascript_enabled" value="false" />
 
 <input type="submit" name="submit" value="Send" />
 </form>
@@ -28,6 +29,7 @@
 <script>
   $(document).ready(function() {
     $('form').validate();
+	$('#javascript_enabled').attr('value'', 'true');
   });
 
     $('#message').blur(function(){

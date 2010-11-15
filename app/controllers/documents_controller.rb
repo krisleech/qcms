@@ -59,25 +59,11 @@ class DocumentsController < ApplicationController
 
   # public facing creation of documents
   def create
+    render :template => '/pages/bot_detected' and return unless params[:javascript_enabled] == 'true'
+    
     @document = Document.public.find(params[:id])
-
-    begin
-      do_human_test
-    rescue
-      flash.now[:notice] = 'You did not add up the numbers correctly, please try again.'
-
-      new_document = Document.new
-      new_document.body = params[:document][:body]
-
-      eval("@new_#{params[:label]} = new_document")
-
-      setup_view_environment
-      render :template => view_for
-      return
-    end
-
+    
     params[:document][:state] = nil # prevent auto approval hack (FIXME: use attr_protected)
-
 
     if @document.meta_definition_for(params[:label]).allowed? current_user, 'create'
 
@@ -131,9 +117,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def do_human_test
-    raise 'Human Test Failed' unless params[:human_test][:answer].crypt('humAn5') == params[:human_test][:crypted_answer]
-  end
 
   def setup_view_environment
     # create children vars such as @comments
