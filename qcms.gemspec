@@ -74,6 +74,7 @@ Gem::Specification.new do |s|
      "init.rb",
      "install.rb",
      "lib/qcms.rb",
+     "qcms.gemspec",
      "rails/init.rb",
      "test/qwerty_test.rb",
      "test/test_helper.rb",
